@@ -1,102 +1,51 @@
+%\DocumentMetadata{lang=en, pdfstandard=ua-2, pdfstandard=a-4f, tagging=on, tagging-setup={math/setup=mathml-SE}}
 \documentclass[letterpaper, 12pt, openany]{book}
 
 \input{pkg-cmd}
 
-\title{Standard Operating Procedures\\ \large Geochemistry \& Radisotope Analysis \& Computation Laboratory (GRACkLe)}
+\title{\Huge Standard Operating Procedures\\\vskip2ex \Large Geochemistry \& Radisotope Analysis \& Computation Laboratory\\(GRACkLe) \\\vskip2ex \Huge CURRENTLY UNDER DEVELOPMENT }
 \author{Primary Investigator: Graham H. Edwards}
 \date{Updated: \today{}}
 
 \begin{document}
 \frontmatter 
 \maketitle
+\tableofcontents\setlength\parskip{1.5ex}
 
 \chapter{Contributors}
-Special thanks to the following writers who have contributed to this document:
+The following individuals have contributed ideas and text to this document:
 
-\begin{center}
+\begin{tabular}{l}
+    Emma Rose Garrett\\
+    Luke Moreton
+\end{tabular}
 
-    Emma Rose Garrett
-
-
-    
-\end{center}
 
 \chapter{Introduction}
-
+Introductory text forthcoming.
 
 
 \mainmatter
 \part{Field methods}
 
 \part{Laboratory methods}
-
-\chapter{Ostracods}
-
-\section{Sediment disaggregation}
-
-\subsection{Silt to sand}
-
-Sieve cleaning and storage: 
-Thoroughly rinse sieves after each use to remove excess stuck sediments 
-To rinse turn sieve over and run water over under side to remove particles without forcing them through the sieve.
-When rinsed dry the sieves to remove most of the water 
-Use ethanol or isopropyl alcohol in squeeze bottle and spray over bottom of sieves 
-Place cleaned sieves in oven to dry overnight 
-Store in dry area 
-
-Preparing Sediments for Sieving: 
-Find clay sediment samples stored in buckets in lab refrigerator and remove a handful sized chunk of clay 
-Place clay in large glass beaker and add water to ~ midway in the beaker 
-Break up large clumps of clay by hand and stir with long glass stirbars 
-Once the clay is fully broken up and there are no large clumps in the beaker, the sediment mixture is ready for sieving 
-
-Wet Sieving: 
-Place wet sieves in the sink 
-Ensure that sieves are aligned with the 200mm sieve on top and the large 75\unit{\micro\meter}m sieve on the bottom.
-Carefully and slowly pour clay slurry from the beaker onto the top 200mm sieve
-After the clay/water mixture is poured, use a plastic hose with low water flow to rinse the top sieve until it is clear of fine particles and only large grains remain
-Remove 200mm sieve and place it aside 
-Often fine clay particles clog the 75\unit{\micro\meter}m sieve so it may be necessary to move water through the sieve by disrupting the water  
-To clear clear clay you can also use water (very gently through the hose) to move the clay through the sieve
-*Note* if the 75\unit{\micro\meter}m sieve is clogged do not try to force sediments through the sieve and when using hand or stir bar to clear sieve do not put too much pressure on or scratch the sieve 
-
-Once water is drained from the 75\unit{\micro\meter}m sieve, rinse several times with the hose and gentle water flow to removethe last of the clay so that only sandy particles remain. 
-(The sandy material will generally look like white/black particles, while the clay will generally be grey or red)
-Prep a clean empty beaker 
-Use the hose to flush the sandy particles from the bottom of 75\unit{\micro\meter}m sieve into the beaker 
-*Note* Be careful when rinsing the 75\unit{\micro\meter}m sieve we do not want to lose any of this material 
-When you rinse sediments into the beaker, you will have a mix of sandy sediments and water in the beaker. Allow this to settle and pour off as much of the clean water as possible without losing any of the sediments (you just want most of the water out) 
-Continue sieving and collecting sediments in the beaker 
-*Note* be sure that you are only sieving the sediments from one site, and do not use all of the sediments from a single site set aside 200-500 grams of sediment from each site in bag or storage container
-
-Drying Sediments: 
-
-The beaker of collected, sieved, sandy sediment that has been decanted and prepped with Isopropanol can now be dried. 
-Place the glass beaker in the oven at ~ 60\unit{\degreeCelsius} allow to dry for several hours 
-Move dried sediments to a bag or container properly labeled with the sediments collection site name.  
-
-
-\subsection{Clay}
-
-\section{Sieving}
-
-\section{Uranium-series chemistry}
-
-\emoji{warning}
-
-Aliquots of the solution, containing nanogram amounts of U will be added to PFA vials containing geologic material and a mixture of HNO3 (± HF) for mineral digestion. After sample digestion and a series of drydown-reflux procedures, U and Th isotopes will be separated by ion chromatography, dried just to dryness and shipped in sealed vials to a collaborating laboratory for isotopic analysis.
+    \chapter{Ostracods}
+        \input{lab/ostracods.tex}
+    \chapter{Sediment cores}
+        \input{lab/cores.tex}
+    \chapter{Uranium-series chemistry}
+        \input{lab/u-series.tex}
 
 \part{Analytical methods}
 
 
-
 \part{Computational methods}
 
-\appendix 
 
-\chapter{Mixed-spike preparation}
+\part{Appendices}\appendix 
+    \chapter{U-Th mixed-spike preparation}
+        \input{appendix/uth-spike.tex}
 
-SRM 4328d and IRMM-3636 will be mixed into a PFA dropper bottle at ppm levels of U (and lower concentrations of Th) for use as a tracer solution for isotopic analysis. 
 
 \backmatter
 %\printbibliography

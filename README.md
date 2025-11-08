@@ -2,9 +2,11 @@
 
 [![CC BY-NC-SA 4.0][cc-by-nc-sa-shield]][cc-by-nc-sa]
 
-Standard operating procedures of routine research activities in the [Geochemistry & Radioisotope Analysis & Computation Lab](https://grackletu.github.io).
+Standard operating procedures of routine research activities in the [Geochemistry & Radioisotope Analysis & Computation Lab](https://grackletu.github.io) at Trinity University.
 
 🚧 Still very much in development 🚧
+
+[Read the SOP here](SOP-grackle.pdf)
 
 ---
 
