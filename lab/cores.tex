@@ -113,6 +113,11 @@ Toward that end, calculate a profile of gray value (light/dark) intensity over t
     \item  Calculate the (gray value) intensity across the axis of a shapes with the ``Plot profile'' analysis tool. After drawing a shape, go to \texttt{Analyze > Plot Profile} (Cmd/ctrl + K).
     \item Inspect the profile and ensure that the distance scale is acccurate and the profile approximates the alternations of light and dark laminae that you visually observe in the image.
     \item Save the data as a \texttt{csv} file by clicking the ``Data $\gg$'' on the profile screen button and selecting ``Save Data\ldots.'' Save the data in the same folder as the mosaic with a filename following of the format \texttt{CoreName-{a/b}-rawprofile.csv}, where a/b reflects the core half, e.g. \texttt{25mvr01c-b-rawprofile.csv}. 
+    \item Overlay the rectangle and save the image.
+    \begin{enumerate}
+        \item Go to \texttt{Image > Overlay > Add Selection...} (Cmd/ctrl~+~B) to ``overlay'' the rectangle. This can be hidden/shown/removed by going to the same dropdown menu and choosing the appropriate option.
+        \item Save the image by going to \texttt{File > Save}. It is fine to overwrite the existing file to keep the name the same. The overlay will only show up in ImageJ. Be sure you are saving the image as a Tiff to preserve the overlay data.
+    \end{enumerate}
 \end{enumerate}
 
 \subsubsection{Reducing profile data}
