@@ -1,5 +1,5 @@
 
-\section{Splitting and cleaning coers}
+\section{Splitting and cleaning cores}
 Coming soon\ldots
 
 
@@ -23,12 +23,105 @@ Image both split halves of a core, labelling the respective halves `a' and `b'.
 
 Once you have completed a session of image collection, transfer the RAW image files to a computer. Distribute images to directories corresponding to individual core-halves, using the following directory hierarchy, for example for images from a core-half `a'.
 
-\texttt{ResarchProjectFolder > core-scans > CoreName > a > \{images\}}
+\texttt{ResearchProjectFolder > core-scans > CoreName > a > \{images\}}
 
 
 \subsection{Image processing}
 
-\subsubsection{Optics corrections}
 
-\subsubsection{Stitching the core scan}
+
+\subsubsection{Optics \& camera corrections}
+
+Lens correction in \footlink{https://docs.darktable.org/usermanual/4.6/en/module-reference/processing-modules/lens-correction/}{darkktable} and \footlink{https://helpx.adobe.com/photoshop-express/lens-correction.html}{Lightroom}.
+
+\subsubsection{Building full-core mosaics}\label{sec:mosaic}
+After the images are corrected for lens and camera effects, we combine the images into a single full-core mosaic for varve analysis.
+We use an open-source scientific image analysis software, ImageJ (\url{https://imagej.net/}), for building core-scan mosaics from constituent image files using the MosaicJ plugin.
+
+\subsubsection{Software set-up} 
+\begin{enumerate}
+    \item If your machine does not already have FIJI\footnote{FIJI, a recursive acronym for ``FIJI Is Just ImageJ,'' is a distribution of ImageJ2 preloaded with useful plugins and plug-in management.\label{fn:fiji}} installed, start by downloading the FIJI software at \url{https://imagej.net/software/fiji/downloads} for your operating system.
+    \item If MosaicJ is not already available under the \texttt{Plugins} menu, you will need to add the BIG-EPFL\footnote{Biomedical Imaging Group, \'Ecole polytechnique f\'ed\'erale de Lausanne} plug-in suite. To activate this plug-in suite\dots
+    \begin{enumerate}
+        \item Go to \texttt{Help > Update...} to open the `ImageJ Updater' window.
+        \item Click on \texttt{Manage Update Sites}
+        \item Select `BIG-EPFL'from the list and click \texttt{Apply and Close}.
+        \item Click \texttt{Apply Changes} in the `ImageJ Updater' window.
+        \item Restart FIJI as directed.
+    \end{enumerate}
+    \item Go to \texttt{Plugins > MosaicJ} to open a MosaicJ window and you're ready to rock!
+\end{enumerate}
+
+\subsubsection{Building a mosaic}
+\begin{enumerate}
+    \item In MosaicJ, select \texttt{File > Open Image Sequence}.
+    \item In the window that pops up, navigate to the directory containing the core imagery and open the first image in the sequence. This will populate all images in that directory along the bottom of the MosaicJ window. 
+    \item Click each image and place it on the gridded canvas of the MosaicJ window.
+    \item After placing the images, MosaicJ gets a little buggy. To fix this save the pre-mosaic, restart MosaicJ, and load the pre-mosaic.
+    \begin{enumerate}
+        \item Go to \texttt{File > Save Pre-Mosaic...} (ctrl + S) and save the pre-mosaic in the same directory as the images.
+        \item Close MosaicJ and restart it from FIJI.
+        \item Go to \texttt{File > Load Pre-Mosaic...} (ctrl+R) and load the pre-mosaic you just saved.
+        \item Now you should be able to easily select each image. 
+    \end{enumerate}
+    \item If MosaicJ gets buggy or you are unable to select images, repeat this step to refresh things.
+    \item Click images to select and move them.
+    \item You can zoom in/out through Magnify/Minify in the \texttt{Scale} menu or using $+$ or $-$ on your keyboard.
+    \item Move images around so they are in the correct order and features close to the center of the core are aligned. This is where we will collect thickness measurements, so we want distortion minimized here. You might find it helpful to start at the scale for a rough alignment, then look to the central axis of the core to align point features (e.g.~dropstones), prominent layers, or cracks to get the fine-tuned alignment.
+    \item When you have the mosaic arranged to your liking, save the pre-mosaic data (\texttt{File > Save Pre-Mosaic...} or ctrl~+~S) in the same directory as the images.
+    \item  Go to \texttt{File > Create Mosaic} (ctrl + M). This stitches the mosaic together and opens back up in regular mode FIJI.
+    \item Go to \texttt{File > Save As > Tiff...} and save the fresh mosaic with a filename of the format \texttt{CoreName-{a/b}-mosaic.tif}, where a/b reflects the core half, e.g. \texttt{25mvr01c-b-mosaic.tif}. 
+
+\end{enumerate}
+
+
+\subsection{Image Analysis}\label{sec:image-analysis}
+Image analyses are performed in ImageJ, an open-source scientific image analysis software.
+
+\subsubsection{Software set-up}
+If you already have FIJI (see footnote~\ref{fn:fiji})installed on your machine (\S\ref{sec:mosaic}), then you are all set. Alternatively, you may download and install ImageJ from \url{https://imagej.net/software/fiji/downloads} or run ImageJ in your browser with similar functionality at \url{https://ij.imjoy.io}.
+The image analysis we will perform uses basic ImageJ functionality, so no need to add any plugins.
+
+\subsubsection{General instructions for using ImageJ \& FIJI}\label{sec:gen-imagej}
+ImageJ and FIJI (\textbf{F}IJI \textbf{I}s \textbf{J}ust \textbf{I}mageJ) provide a variety of ways to extract quantitative information form images. 
+You can find detailed instructions for using the softwares at \url{https://imagej.net/learn/user-guides}. Below, I provide a few highlights that you will likely rely upon regularly.
+\begin{enumerate}
+    \item Zoom in and out by pressing $+$ or $-$ on the keyboard or going to \texttt{Image > Zoom}.
+    \item Move around the image using by clicking and dragging with the ``Scrolling tool'' (\icon{imagej-scrolling-tool.png}). You may quickly go into scrolling tool mode by holding the space bar.
+    \item You can draw/trace a variety of shapes by selecting tools from the toolbar, such as the ``Rectangle'' (\icon{imagej-rectangle}) or ``Straight line'' tools (\icon{imagej-straight-line}).
+    \item Measure lengths, areas, and more from the shapes you add by going to \texttt{Analyze > Measure} (Cmd/ctrl + M). 
+    \item Set the scale of an image by measuring the length in pixels of an object of known physical dimensions and then set the scale by going to \texttt{Image > Scale...} (Cmd/ctrl + E).    
+    \item Measure a profile of (gray value) intensity across the axis of a shapes with the ``Plot profile'' analysis tool. After drawing a shape, go to \texttt{Analyze > Plot Profile} (Cmd/ctrl + K).
+    \item Create a histogram of (gray value) intensities within a shape by going to \texttt{Analyze > Histogram}.
+    \item You can update profiles and histograms in real-time by clicking the ``Live'' button.
+    \item This barely scratches the surface, so I encourage you to explore the studio space or check out \url{https://imagej.net/learn/user-guides} to learn more!
+\end{enumerate}
+
+\subsubsection{Measuring a profile of lamination thicknesses}
+When measuring the thicknesses of laminations, we want to be as structured, consistent, and reproducible as possible. 
+Toward that end, calculate a profile of gray value (light/dark) intensity over the length of the core using the \footlink{https://imagej.net/ij/nih-image/more-docs/Tutorial/Profile.html}{intensity profile} functionality of ImageJ:
+
+\begin{enumerate}
+    \item Set the scale of the image relative to the measuring tape to ensure the data you collect are in millimeters (see \S\ref{sec:gen-imagej}):
+    \begin{enumerate}
+        \item Draw a line along a 100~mm (10~cm) length of the scale in the mosaic. Try to follow the horizontal line on the scale and align both endpoints of your line to the start (or end, just be consistent) of the ticks. Try \emph{not} to extend beyond a single sub-image of the mosaic to minimize distortion.
+        \item Check the length of your line in pixels by going to \texttt{Analyze > Measure} (Cmd/ctrl + M).
+        \item Go to \texttt{Analyze > Set Scale...} and confirm that this has inherited the correct length in pixels. 
+        \item Enter \texttt{100} for ``Known distance:'' and \texttt{mm} for ``Unit of length:'' and click ``OK.''
+    \end{enumerate}
+    \item Draw a rectangle with a width of $5.00 \pm 0.05$~mm (zooming in helps to get within specifications) along the length of the core with the least deformation. This is likely the central axis of the core length, but may vary from core to core. Be sure to include the full length, you can always cut out portions later.
+    \item  Calculate the (gray value) intensity across the axis of a shapes with the ``Plot profile'' analysis tool. After drawing a shape, go to \texttt{Analyze > Plot Profile} (Cmd/ctrl + K).
+    \item Inspect the profile and ensure that the distance scale is acccurate and the profile approximates the alternations of light and dark laminae that you visually observe in the image.
+    \item Save the data as a \texttt{csv} file by clicking the ``Data $\gg$'' on the profile screen button and selecting ``Save Data\ldots.'' Save the data in the same folder as the mosaic with a filename following of the format \texttt{CoreName-{a/b}-rawprofile.csv}, where a/b reflects the core half, e.g. \texttt{25mvr01c-b-rawprofile.csv}. 
+\end{enumerate}
+
+\subsubsection{Reducing profile data}
+
+This will probably be done in \href{BonitoBook}{https://bonitobook.org/website/} for easy plot interaction, using \href{https://docs.makie.org/stable/explanations/inspector.html}{Makie.DataInspector}. 
+
+\begin{enumerate}
+    \item Identify upper-bound of cracks and filter cracks out, sealing those gaps by subtracting the crack width from all subsequent measurements. 
+    \item Re-evaluate data to confirm removal of low values for cracks. 
+    \item Identify elevation of half-width or if you need multiple half-width depths fro different phases of core (this will require some squirrely coding). 
+\end{enumerate}
 

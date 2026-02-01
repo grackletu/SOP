@@ -3,7 +3,7 @@
 
 %% Packages 
 
-\usepackage{graphicx}
+\usepackage{graphicx} \graphicspath{{img/}}
 \usepackage{booktabs}
 \usepackage{emoji}
 \usepackage{siunitx}
@@ -14,3 +14,7 @@
 
 %% Commands & adjustments
 \setlength\parindent{0pt} 
+
+\newcommand{\footlink}[2]{\href{#1}{#2}\footnote{\url{#1}}}
+
+\newcommand{\icon}[1]{\includegraphics[height=2ex]{#1}}
